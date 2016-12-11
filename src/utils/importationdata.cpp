@@ -39,12 +39,13 @@ importation_code_t ImportationData::importData(ElementsTable &et)
 
         strl=line.split(";");
 
-        if(et.find(strl.first()) == et.end())
+        uint8_t an=strl.first().toUInt();
+        if(et.find(an) == et.end())
         {
             Element elt;
             elt.setAtomicNumber(strl.at(ELT_LIST_AN).toUInt());
             elt.setAtomicMass(strl.at(ELT_LIST_AM).toDouble());
-            et.insert(strl.first(), elt);
+            et.insert(an, elt);
         }
     }
     file.close();

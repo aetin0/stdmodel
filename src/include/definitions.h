@@ -3,9 +3,12 @@
 
 #include <QString>
 #include <QMap>
-
+#include <QHash>
+#include <stdint.h>
 
 #define ELEMENT_TABLE_PATH "../resources/element_list.csv"
+#define MIN_ELT_AN          1
+#define MAX_ELT_AN          118
 
 enum {
     ELT_LIST_AN=0,
@@ -33,7 +36,15 @@ typedef enum element_category{
 }element_category_t;
 
 class Element;
-typedef QString AtomicNumber;
+
+typedef uint8_t AtomicNumber;
 typedef QMap<AtomicNumber, Element> ElementsTable;
+typedef QList<Element> ElementsList;
+
+/*elementpicker.h*/
+/**
+  * QHash<AtomicNumber, Quantity of element>
+  * */
+typedef QHash<uint8_t, uint8_t> RequestedElements;
 
 #endif // DEFINITIONS_H

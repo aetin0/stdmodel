@@ -34,10 +34,27 @@ Worker& Worker::Instance()
 
 void Worker::run()
 {
+    importation_code_t ret=IC_ERROR;
+
     dataImporter=ImportationData(ELEMENT_TABLE_PATH);
-    dataImporter.importData(mdlvTable);
+    ret = dataImporter.importData(mdlvTable);
+
+    if(ret != IC_OK)
+        return;
 
     foreach(Element elt, mdlvTable)
+    {
+        printf("%d : %f\n",elt.getAtomicNumber(), elt.getAtomicMass());
+    }
+
+    ElementsList elist;
+    RequestedElements re;
+    re.insert(1,2);//H2
+    re.insert(8,1);//O
+
+    elist = eltPicker.pickElementsFromTable(mdlvTable, re);
+    printf("Chosen elements:::\n");
+    foreach(Element elt, elist)
     {
         printf("%d : %f\n",elt.getAtomicNumber(), elt.getAtomicMass());
     }

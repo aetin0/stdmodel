@@ -1,9 +1,10 @@
 #ifndef WORKER_H
 #define WORKER_H
 
+#include "include/definitions.h"
 #include "phy/element.h"
 #include "utils/importationdata.h"
-#include "include/definitions.h"
+#include "elementpicker.h"
 
 /**
  * singleton
@@ -22,6 +23,7 @@ private:
 
     ElementsTable                   mdlvTable;
     ImportationData                 dataImporter;
+    ElementPicker                   eltPicker;
 
 public:
     static Worker& Instance();

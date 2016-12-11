@@ -12,6 +12,7 @@
 
 enum {
     ELT_LIST_AN=0,
+    ELT_LIST_SYMB=1,
     ELT_LIST_AM=3
 };
 

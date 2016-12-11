@@ -56,6 +56,6 @@ void Worker::run()
     printf("Chosen elements:::\n");
     foreach(Element elt, elist)
     {
-        printf("%d : %f\n",elt.getAtomicNumber(), elt.getAtomicMass());
+        printf("%s : %f\n",elt.getSymbol().toByteArray().data(), elt.getAtomicMass());
     }
 }

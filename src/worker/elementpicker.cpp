@@ -47,7 +47,7 @@ int ElementPicker::isAtomicNumberValid(uint8_t an)
 {
     int valid=0;
 
-    if(an >= 1 && an <= 118)
+    if(an >= MIN_ELT_AN && an <= MAX_ELT_AN)
         valid=1;
 
     return valid;

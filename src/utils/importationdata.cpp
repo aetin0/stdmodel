@@ -45,6 +45,7 @@ importation_code_t ImportationData::importData(ElementsTable &et)
             Element elt;
             elt.setAtomicNumber(strl.at(ELT_LIST_AN).toUInt());
             elt.setAtomicMass(strl.at(ELT_LIST_AM).toDouble());
+            elt.setSymbol(QVariant(strl.at(ELT_LIST_SYMB)));
             et.insert(an, elt);
         }
     }

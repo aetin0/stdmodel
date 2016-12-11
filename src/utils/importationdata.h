@@ -9,7 +9,7 @@ class ImportationData
 public:
     ImportationData();
     ImportationData(const Filename &);
-    importation_code_t importData(ElementsTable& et);
+    int importData(ElementsTable& et);
 
 
 private:

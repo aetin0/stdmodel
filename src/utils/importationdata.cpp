@@ -4,6 +4,8 @@
 #include <QStringList>
 #include <QByteArray>
 #include <QDebug>
+#include <QMessageLogger>
+#include <errno.h>
 
 #include "phy/element.h"
 #include "include/definitions.h"
@@ -18,15 +20,18 @@ ImportationData::ImportationData(const Filename & file):filename(file)
 
 }
 
-importation_code_t ImportationData::importData(ElementsTable &et)
+int ImportationData::importData(ElementsTable &et)
 {
     if(filename.isEmpty())
-        return IC_ERROR;
+        return -1;
 
     QFile file(filename);
 
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return IC_ERROR;
+    {
+        qCritical() << "importing file " << filename << ": " << QString(strerror(errno));
+        return errno;
+    }
 
     QTextStream in(&file);
     QStringList strl;

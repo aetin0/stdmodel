@@ -19,11 +19,13 @@ SOURCES += main.cpp \
     phy/element.cpp \
     worker/worker.cpp \
     utils/importationdata.cpp \
-    worker/elementpicker.cpp
+    worker/elementpicker.cpp \
+    utils/msghandler.cpp
 
 HEADERS += \
     phy/element.h \
     utils/importationdata.h \
     worker/worker.h \
     include/definitions.h \
-    worker/elementpicker.h
+    worker/elementpicker.h \
+    utils/msghandler.h

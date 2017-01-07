@@ -48,9 +48,11 @@ int ImportationData::importData(ElementsTable &et)
         if(et.find(an) == et.end())
         {
             Element elt;
+            elt.setSymbol(QVariant(strl.at(ELT_LIST_SYMB)));
+            qDebug() << "element " <<  elt.getSymbol().toString();
             elt.setAtomicNumber(strl.at(ELT_LIST_AN).toUInt());
             elt.setAtomicMass(strl.at(ELT_LIST_AM).toDouble());
-            elt.setSymbol(QVariant(strl.at(ELT_LIST_SYMB)));
+            elt.configureOrbitalSpace();
             et.insert(an, elt);
         }
     }

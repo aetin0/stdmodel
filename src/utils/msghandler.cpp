@@ -1,5 +1,5 @@
 #include "msghandler.h"
-#include <stdio.h>
+#include <QDebug>
 #include <stdlib.h>
 #include <QCoreApplication>
 

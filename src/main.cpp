@@ -7,11 +7,10 @@
 int main(int argc, char *argv[])
 {
     qInstallMessageHandler(MsgHandler);
-    QCoreApplication a(argc, argv);
 
     Worker& _worker = Worker::Instance();
     _worker.run();
 
-    return a.exec();
+    return 0;
 }
 

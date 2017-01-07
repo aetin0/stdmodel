@@ -20,7 +20,10 @@ SOURCES += main.cpp \
     worker/worker.cpp \
     utils/importationdata.cpp \
     worker/elementpicker.cpp \
-    utils/msghandler.cpp
+    utils/msghandler.cpp \
+    phy/atomicorbital.cpp \
+    phy/orbitallayers.cpp \
+    phy/electron.cpp
 
 HEADERS += \
     phy/element.h \
@@ -28,4 +31,7 @@ HEADERS += \
     worker/worker.h \
     include/definitions.h \
     worker/elementpicker.h \
-    utils/msghandler.h
+    utils/msghandler.h \
+    phy/atomicorbital.h \
+    phy/orbitallayers.h \
+    phy/electron.h

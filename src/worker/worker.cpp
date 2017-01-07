@@ -1,5 +1,5 @@
 #include "worker.h"
-#include <stdio.h>
+#include <QDebug>
 
 /**
   The worker is a singleton.
@@ -33,18 +33,20 @@ void Worker::run()
 
     foreach(Element elt, mdlvTable)
     {
-        printf("%d : %f\n",elt.getAtomicNumber(), elt.getAtomicMass());
+        OrbitalLayers ol= elt.getOrbitalConfiguration();
+        QQueue<AtomicOrbital*> ao=ol.getLayers();
+        QQueue<AtomicOrbital*>::iterator it=ao.begin();
+        for(;it!=ao.end();++it)
+            qDebug() << "Element" << elt.getSymbol().toString() << "n=" << (*it)->getN() << ";l=" << (*it)->getL() <<"; NbElectrons : " <<  (*it)->getNbElectronsInOrbital();
     }
 
     ElementsList elist;
     RequestedElements re;
     re.insert(1,2);//H2
-    re.insert(8,1);//O
+    //re.insert(8,1);//O
 
     elist = eltPicker.pickElementsFromTable(mdlvTable, re);
-    printf("Chosen elements:::\n");
-    foreach(Element elt, elist)
-    {
-        printf("%s : %f\n",elt.getSymbol().toByteArray().data(), elt.getAtomicMass());
-    }
+//    qDebug() << "Chosen elements::";
+//    foreach(Element elt, elist)
+//        qDebug() << elt.getSymbol().toByteArray().data() << ";" <<  elt.getAtomicMass();
 }

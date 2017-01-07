@@ -1,5 +1,5 @@
 #include "elementpicker.h"
-#include <stdio.h>
+#include <QDebug>
 
 ElementPicker::ElementPicker()
 {

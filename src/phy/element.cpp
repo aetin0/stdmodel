@@ -1,5 +1,5 @@
 #include "element.h"
-
+#include <QDebug>
 
 Element::Element()
 {
@@ -34,4 +34,14 @@ void Element::setSymbol(const QVariant s)
 void Element::setCategory(const element_category_t ec)
 {
     category=ec;
+}
+
+int Element::configureOrbitalSpace()
+{
+    int ret=-1;
+
+    for(int i=1;i<=atomicNumber;++i)
+        orbitalConfiguration.addElectronToLayer();
+
+    return ret;
 }

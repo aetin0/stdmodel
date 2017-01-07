@@ -48,4 +48,6 @@ typedef QList<Element> ElementsList;
   * */
 typedef QHash<uint8_t, uint8_t> RequestedElements;
 
+
+
 #endif // DEFINITIONS_H

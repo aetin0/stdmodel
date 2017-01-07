@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <QVariant>
 
+#include "phy/atomicorbital.h"
+#include "phy/orbitallayers.h"
 #include "include/definitions.h"
 /*
  * Element : Mendeleev's table
@@ -29,6 +31,9 @@ public:
 
     void setCategory(const element_category_t ec);
     element_category_t getCategory(){return category;}
+    int configureOrbitalSpace();
+
+    OrbitalLayers getOrbitalConfiguration() {return orbitalConfiguration;}
 
 
 private:
@@ -37,6 +42,9 @@ private:
     uint8_t                 oxidationState;
     QVariant                symbol;
     element_category_t      category;
+    OrbitalLayers           orbitalConfiguration;
+
+
 
 };
 

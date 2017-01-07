@@ -45,10 +45,10 @@ void Worker::run()
     ElementsList elist;
     RequestedElements re;
     re.insert(1,2);//H2
-    //re.insert(8,1);//O
+    re.insert(8,1);//O
 
     elist = eltPicker.pickElementsFromTable(mdlvTable, re);
-//    qDebug() << "Chosen elements::";
-//    foreach(Element elt, elist)
-//        qDebug() << elt.getSymbol().toByteArray().data() << ";" <<  elt.getAtomicMass();
+    qDebug() << "Chosen elements::";
+    foreach(Element elt, elist)
+        qDebug() << elt.getSymbol().toByteArray().data() << ";" <<  elt.getAtomicMass() << ";" << elt.getNbValenceElectrons();
 }

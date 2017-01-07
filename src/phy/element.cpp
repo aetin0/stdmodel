@@ -45,3 +45,20 @@ int Element::configureOrbitalSpace()
 
     return ret;
 }
+
+int Element::getNbValenceElectrons()
+{
+    QQueue<AtomicOrbital*> layers = orbitalConfiguration.getLayers();
+    int highestN = layers.last()->getN();
+    int nbValenceElectrons=0;
+
+    QQueue<AtomicOrbital*>::iterator it = layers.begin();
+
+    for(;it!=layers.end();++it)
+    {
+        if((*it)->getN()==highestN)
+            nbValenceElectrons+=(*it)->getNbElectronsInOrbital();
+    }
+
+    return nbValenceElectrons;
+}

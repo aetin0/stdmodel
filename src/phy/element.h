@@ -34,6 +34,7 @@ public:
     int configureOrbitalSpace();
 
     OrbitalLayers getOrbitalConfiguration() {return orbitalConfiguration;}
+    int getNbValenceElectrons();
 
 
 private:
@@ -43,9 +44,6 @@ private:
     QVariant                symbol;
     element_category_t      category;
     OrbitalLayers           orbitalConfiguration;
-
-
-
 };
 
 #endif // ELEMENT_H

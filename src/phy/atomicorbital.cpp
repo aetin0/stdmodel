@@ -43,8 +43,9 @@ bool OrbitalStructure::storeElectronToOrbital(quint8 n, qint8 l, qint8 ml, elect
     }
     else
         return false;
-
+#ifdef VERBOSE
     qDebug() << "electron e(" << e->getN() << "," << e->getL() << "," << e->getML() << "," << (qint8)e->getSPIN() << ") added";
+#endif
     return ret;
 }
 

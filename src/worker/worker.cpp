@@ -31,6 +31,7 @@ void Worker::run()
     if(ret != IC_OK)
         return;
 
+#ifdef VERBOSE
     foreach(Element elt, mdlvTable)
     {
         OrbitalLayers ol= elt.getOrbitalConfiguration();
@@ -39,6 +40,7 @@ void Worker::run()
         for(;it!=ao.end();++it)
             qDebug() << "Element" << elt.getSymbol().toString() << "n=" << (*it)->getN() << ";l=" << (*it)->getL() <<"; NbElectrons : " <<  (*it)->getNbElectronsInOrbital();
     }
+#endif
 
     ElementsList elist;
     RequestedElements re;

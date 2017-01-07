@@ -49,7 +49,9 @@ int ImportationData::importData(ElementsTable &et)
         {
             Element elt;
             elt.setSymbol(QVariant(strl.at(ELT_LIST_SYMB)));
+#ifdef VERBOSE
             qDebug() << "element " <<  elt.getSymbol().toString();
+#endif
             elt.setAtomicNumber(strl.at(ELT_LIST_AN).toUInt());
             elt.setAtomicMass(strl.at(ELT_LIST_AM).toDouble());
             elt.configureOrbitalSpace();

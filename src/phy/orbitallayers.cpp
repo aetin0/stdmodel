@@ -16,7 +16,9 @@ int OrbitalLayers::addElectronToLayer()
     AtomicOrbital* lastOrbital = layers.last();
     if(lastOrbital->isOrbitalFull())
     {
+#ifdef VERBOSE
         qDebug() << "orbital n=" << lastOrbital->getN() << "; l=" << lastOrbital->getL() << " is full";
+#endif
         addOrbitalToLayer();
     }
 
